@@ -5,8 +5,9 @@ import os
 from datetime import datetime
 from flask import Flask, flash, request, redirect, url_for, render_template, Response
 from werkzeug.utils import secure_filename
+import config
 
-UPLOAD_FOLDER = r'/home/hritik/Documents/Project/KhojApp/IMAGE_FILES'
+UPLOAD_FOLDER = config.UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 
@@ -54,7 +55,7 @@ def index():
 def gen():
     IMAGE_FILES = []
     filename = []
-    dir_path = r'/home/hritik/Documents/Project/KhojApp/IMAGE_FILES'
+    dir_path = config.UPLOAD_FOLDER
 
     for imagess in os.listdir(dir_path):
         img_path = os.path.join(dir_path, imagess)
