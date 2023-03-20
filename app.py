@@ -1,4 +1,5 @@
 import cv2
+from flask_login import login_required
 import numpy as np
 import face_recognition
 import os
@@ -6,6 +7,9 @@ from datetime import datetime
 from flask import Flask, flash, request, redirect, url_for, render_template, Response
 from werkzeug.utils import secure_filename
 import config
+from auth import login_manager, login, logout
+
+
 
 UPLOAD_FOLDER = config.UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -19,12 +23,16 @@ def allowed_file(filename):
 app = Flask(__name__)
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+login_manager.init_app(app)
 
 
 @app.route('/')
 def upload_file():
     return render_template('upload.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login_route():
+    return login()
 
 @app.route('/success', methods=['GET', 'POST'])
 def success():
@@ -133,6 +141,17 @@ def video_feed():
     return Response(gen(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+
+# admin_route
+@app.route("/admin")
+@login_required
+def admin():
+    return render_template("admin.html")
+
+@app.route('/logout', methods=['GET', 'POST'])
+@login_required
+def logout_route():
+    return logout()
 
 if __name__ == "__main__":
     app.run(debug=True)
