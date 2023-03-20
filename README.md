@@ -1,20 +1,13 @@
 
-# Face-Recognition-Attendance-System
+# KHOJ -Find Missing Person
 
-Recognize The faces And Take Automatic Attandance. ✨
-
-![Alt text](demo/Face-Recognition-Attendance-System-Logo.jpg?raw=true "Face-Recognition-Attendance-System")
-
-This project is a POC web application demonstrating the use of facial recognition for marking attendance. It is a web application that can be used by the company to manage attendance of its employees.
+Recognize the faces and find the matching faces with missing persons. ✨
 
 ## Functionality Supported
 
-- Register new employees.
-- Add employee photos.
-- View attendance reports of all employees. Attendance can be filtered by date or employee.
-
-
-
+- Register for missing person.
+- Add missing person photo.
+- View Matched faces reports of all founded missing-persons.
 
 ## Built Using
 
@@ -22,6 +15,20 @@ This project is a POC web application demonstrating the use of facial recognitio
  - [Dlib]() - C++ Library containing Machine Learning Algorithms
  - [face_recognition]() - by Adam Geitgey
  - [Flask]() - Python framework for web development
+
+## How to install and test the app
+  - Clone the repo using the cmd `git clone https://github.com/hritikhrk/KhojApp.git`
+  - Go to the root directory of this repository.
+  - Install virtual environment using - 
+    - For Windows : `py -3 -m venv venv`
+    - For Linux/MacOS: `python3 -m venv venv`
+  - Activate the virtual environment using the cmd - 
+    - For Windows : `venv\Scripts\activate`
+    - For Linux/MacOS: `. venv/bin/activate`
+  - Install all the modules and packages using the cmd `pip install -r requirements.txt`
+  - Now you can run the application using `flask run`
+
+
 
 ## Face Detection
 
@@ -49,7 +56,7 @@ This project is a POC web application demonstrating the use of facial recognitio
 
 ## Scope of the project 🚀
 
-Facial recognition is becoming more prominent in our society. It has made major progress in the field of security. It is a very effective tool that can help low enforcers to recognize criminals and software companies are leveraging the technology to help users access the technology. This technology can be further developed to be used in other avenues such as ATMs, accessing confidential files, or other sensitive materials. This project servers as a foundation for future projects based on facial detection and recognition. This project also convers web development and database management with a user-friendly UI. Using this system any corporate offices, school and organization can replace their traditional way of maintaining attendance of the employees and can also generate their availability(presence) report throughout the month.
+
 
 
 
