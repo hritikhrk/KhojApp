@@ -79,8 +79,8 @@ def gen():
             encodeList.append(encode)
         return encodeList
 
-    def takeAttendence(name):
-        with open('attendence.csv', 'r+') as f:
+    def takeScanRecord(name):
+        with open('records.csv', 'r+') as f:
             mypeople_list = f.readlines()
             nameList = []
             for line in mypeople_list:
@@ -124,7 +124,7 @@ def gen():
                 cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 0), 2)
                 cv2.rectangle(img, (x1, y2 - 35), (x2, y2), (255, 0, 0), 2, cv2.FILLED)
                 cv2.putText(img, name, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-                takeAttendence(name)  # taking name for attendence function above
+                takeScanRecord(name)  # taking name for the matched missing person photo function above
 
         # cv2.imshow("campare", img)
         # cv2.waitKey(0)
